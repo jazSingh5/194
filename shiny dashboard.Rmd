@@ -1,0 +1,42 @@
+---
+title: "shiny dashboard"
+runtime: shiny
+output: flexdashboard::flex_dashboard
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+data_file = "https://data.sanjoseca.gov/dataset/918fb7f0-60c0-484e-b31c-334d1ec74e92/resource/15408d78-9734-4ea1-b3e5-a0f99568dd9b/download/crashdata2021-present.csv"
+
+vehicle_data <- read_csv(url(data_file))
+```
+
+Sidebar {.sidebar}
+-----------------------------------------------------------------------
+Variables: 
+
+```{r}
+selectInput("variable", label = "variable", choices = colnames(vehicle_data), selected = "RoadwaySurface")
+```
+### Chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
